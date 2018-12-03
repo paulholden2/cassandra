@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "electron": "electron .",
     "dist-clean": "rm -rf dist bin",
-    "pack": "ng build --prod --base-href ./ && electron-packager . cassandra --out=bin --ignore=\"node_modules/(.bin|.cache)\"",
+    "pack": "ng build --prod --base-href ./ && electron-packager . cassandra --out=bin --ignore=\"(node_modules\\/\\.cache|\\.editorconfig|\\.gitignore|README\\.md|src|e2e|\\.vagrant|Vagrantfile|ts.+\\.json|angular\\.json|msi\\.js|postinstall\\.js)\"",
     "msi": "node msi.js"
   },
   "private": true,
