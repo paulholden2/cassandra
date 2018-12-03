@@ -14,3 +14,10 @@ fieldset {
   padding: 0px !important;
   margin: 0px !important;
 }
+
+/* The card-action style is used outside of normal cards, and this lets us
+ * align the links better with normal content
+ */
+.no-pad-card-action {
+  padding-left: 0px !important;
+}
