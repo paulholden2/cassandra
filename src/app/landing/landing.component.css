@@ -1,0 +1,16 @@
+h1.header {
+  font-family: rommantis;
+  font-size: 10rem;
+}
+
+#brand {
+  margin-top: 0px !important;
+  /* Prevent highlighting. Fancy font glitches out when you mess with it */
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

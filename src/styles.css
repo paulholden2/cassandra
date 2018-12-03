@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: rommantis;
+  src: url('./assets/font/rommantis.ttf'), url('./assets/font/rommantis.otf');
+}
+
+a.disabled {
+  pointer-events: none;
+}
+
+fieldset {
+  border: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
