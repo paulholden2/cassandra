@@ -17,6 +17,7 @@ import { BillingComponent } from './billing/billing.component';
 import { SpringcmImportFileComponent } from './springcm/springcm-import/springcm-import-file/springcm-import-file.component';
 import { SpringcmFileToolbarComponent } from './springcm/springcm-file-toolbar/springcm-file-toolbar.component';
 import { SpringcmImportTasksWidgetComponent } from './springcm/springcm-import/springcm-import-tasks-widget/springcm-import-tasks-widget.component';
+import { JsonEditorComponent } from './json-editor/json-editor.component';
 
 const routes: Routes = [
   {
@@ -54,7 +55,8 @@ const routes: Routes = [
     BillingComponent,
     SpringcmImportFileComponent,
     SpringcmFileToolbarComponent,
-    SpringcmImportTasksWidgetComponent
+    SpringcmImportTasksWidgetComponent,
+    JsonEditorComponent
   ],
   entryComponents: [
     SpringcmImportTasksWidgetComponent

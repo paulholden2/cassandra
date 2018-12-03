@@ -16,7 +16,12 @@ function createWindow() {
     slashes: true
   });
 
-  win.loadURL(windowUrl);
+  // Use electron . --serve for hot loading from source
+  if (process.argv.some(arg => arg === '--serve')) {
+    win.loadURL('http://localhost:4200')
+  } else {
+    win.loadURL(windowUrl);
+  }
 
   win.on('closed', () => {
     win = null;
