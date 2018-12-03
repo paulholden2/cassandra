@@ -1,14 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-
 @font-face {
   font-family: rommantis;
   src: url('./assets/font/rommantis.ttf'), url('./assets/font/rommantis.otf');
 }
 
+/* Get disabled links to interact correctly with the mouse */
 a.disabled {
   pointer-events: none;
 }
 
+/* ngx-schema-form uses fieldset elements, which aren't styled by
+ * Materialize out-of-the-box.
+ */
 fieldset {
   border: 0px !important;
   padding: 0px !important;
@@ -22,6 +24,7 @@ fieldset {
   padding-left: 0px !important;
 }
 
+/* Gray out icons to give a "disabled" look */
 img.disabled {
   opacity: 0.7;
   -webkit-filter: grayscale(100%);
