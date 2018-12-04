@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ArrayWidget } from 'ngx-schema-form';
 
 @Component({
@@ -6,6 +6,4 @@ import { ArrayWidget } from 'ngx-schema-form';
   templateUrl: './springcm-import-tasks-widget.component.html',
   styleUrls: ['./springcm-import-tasks-widget.component.scss']
 })
-export class SpringcmImportTasksWidgetComponent extends ArrayWidget {
-
-}
+export class SpringcmImportTasksWidgetComponent extends ArrayWidget { }

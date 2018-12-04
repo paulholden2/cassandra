@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { SchemaFormModule, WidgetRegistry, DefaultWidgetRegistry } from 'ngx-schema-form';
 import { ExtendedWidgetRegistry } from './extended-widget-registry';
@@ -21,6 +21,7 @@ import { JsonEditorComponent } from './json-editor/json-editor.component';
 import { SpringcmImportItemsComponent } from './springcm/springcm-import/springcm-import-items/springcm-import-items.component';
 import { SpringcmUploadItemsComponent } from './springcm/springcm-upload/springcm-upload-items/springcm-upload-items.component';
 import { SpringcmUploadFileComponent } from './springcm/springcm-upload/springcm-upload-file/springcm-upload-file.component';
+import { ValidatedStringWidgetComponent } from './json-editor/validated-string-widget/validated-string-widget.component';
 
 const routes: Routes = [
   {
@@ -74,14 +75,17 @@ const routes: Routes = [
     JsonEditorComponent,
     SpringcmImportItemsComponent,
     SpringcmUploadItemsComponent,
-    SpringcmUploadFileComponent
+    SpringcmUploadFileComponent,
+    ValidatedStringWidgetComponent
   ],
   entryComponents: [
-    SpringcmImportTasksWidgetComponent
+    SpringcmImportTasksWidgetComponent,
+    ValidatedStringWidgetComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AceEditorModule,
     RouterModule.forRoot(routes),
     SchemaFormModule.forRoot()

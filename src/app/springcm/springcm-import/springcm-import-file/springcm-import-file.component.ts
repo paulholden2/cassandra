@@ -14,33 +14,48 @@ export class SpringcmImportFileComponent implements AfterViewInit {
     properties: {
       tasks: {
         widget: 'springcm-import-tasks',
-        description: 'Import Tasks',
+        title: 'Import Tasks',
         type: 'array',
         items: {
           type: 'object',
+          title: 'Job Information',
+          required: [
+            'job',
+            'customer'
+          ],
           properties: {
             job: {
               type: 'string',
+              widget: 'validated-string',
               title: 'Job ID'
             },
             customer: {
               type: 'string',
+              widget: 'validated-string',
               title: 'Customer ID'
             },
             auth: {
               type: 'object',
-              description: 'SpringCM Authentication',
+              title: 'SpringCM Authentication',
+              required: [
+                'clientId',
+                'clientSecret',
+                'dataCenter'
+              ],
               properties: {
                 clientId: {
                   type: 'string',
+                  widget: 'validated-string',
                   title: 'Client ID'
                 },
                 clientSecret: {
                   type: 'string',
+                  widget: 'validated-string',
                   title: 'Client Secret'
                 },
                 dataCenter: {
                   type: 'string',
+                  widget: 'validated-string',
                   title: 'Data Center'
                 }
               }

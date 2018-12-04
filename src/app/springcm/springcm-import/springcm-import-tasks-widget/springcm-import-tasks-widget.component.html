@@ -1,20 +1,26 @@
 <div class="widget form-group">
   <label [attr.for]="id" class="horizontal control-label">
-    {{ schema.title }}
+    <h5>{{ schema.title }}</h5>
   </label>
+  <div class="divider"></div>
+  <br>
   <div *ngIf="schema.description" class="formHelp row">
     <div class="col s12">
       <h6>{{schema.description}}</h6>
     </div>
   </div>
   <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
-    <sf-form-element [formProperty]="itemProperty"></sf-form-element>
-    <button (click)="removeItem(itemProperty)" class="btn btn-default array-remove-button">
-      Remove Task
-    </button>
-    <div class="array-widget-divider"></div>
+    <div class="card">
+      <div class="card-content">
+        <sf-form-element [formProperty]="itemProperty"></sf-form-element>
+        <br>
+        <button (click)="removeItem(itemProperty)" class="btn btn-default array-remove-button">
+          Remove Task
+        </button>
+      </div>
+    </div>
   </div>
-  <button (click)="addItem()" class="btn btn-default array-add-button">
+  <a (click)="addItem()" class="btn btn-default array-add-button">
     Add Task
-  </button>
+  </a>
 </div>

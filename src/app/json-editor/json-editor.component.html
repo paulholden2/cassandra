@@ -19,7 +19,9 @@
 </div>
 <div class="col s12">
   <div [hidden]="!editorMode()">
-    <sf-form [schema]="schema" [(model)]="model"></sf-form>
+    <form>
+      <sf-form [schema]="schema" [(model)]="model"></sf-form>
+    </form>
   </div>
   <div [hidden]="!jsonMode()">
     <div ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" #editor></div>
