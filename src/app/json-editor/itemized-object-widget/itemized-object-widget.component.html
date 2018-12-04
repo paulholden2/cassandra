@@ -1,7 +1,5 @@
 <div class="widget form-group">
-  <label [attr.for]="id" class="horizontal control-label">
-    <h5>{{ schema.title }}</h5>
-  </label>
+  <h5 class="header">{{ schema.title }}</h5>
   <div class="divider"></div>
   <br>
   <div *ngIf="schema.description" class="formHelp row">
@@ -12,7 +10,6 @@
   <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
     <blockquote>
       <sf-form-element [formProperty]="itemProperty"></sf-form-element>
-      <br>
       <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
         Remove Item
       </button>
