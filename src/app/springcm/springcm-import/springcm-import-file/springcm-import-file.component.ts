@@ -19,6 +19,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
         items: {
           type: 'object',
           title: 'Job Information',
+          widget: 'ext-object',
           required: [
             'job',
             'customer'
@@ -37,6 +38,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
             auth: {
               type: 'object',
               title: 'SpringCM Authentication',
+              widget: 'ext-object',
               required: [
                 'clientId',
                 'clientSecret',
@@ -62,7 +64,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
             },
             paths: {
               type: 'array',
-              description: 'Path Configurations',
+              title: 'Path Configurations',
               items: {
                 type: 'object',
                 properties: {

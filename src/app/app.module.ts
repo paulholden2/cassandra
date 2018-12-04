@@ -22,6 +22,7 @@ import { SpringcmImportItemsComponent } from './springcm/springcm-import/springc
 import { SpringcmUploadItemsComponent } from './springcm/springcm-upload/springcm-upload-items/springcm-upload-items.component';
 import { SpringcmUploadFileComponent } from './springcm/springcm-upload/springcm-upload-file/springcm-upload-file.component';
 import { ValidatedStringWidgetComponent } from './json-editor/validated-string-widget/validated-string-widget.component';
+import { ExtObjectWidgetComponent } from './json-editor/ext-object-widget/ext-object-widget.component';
 
 const routes: Routes = [
   {
@@ -76,11 +77,13 @@ const routes: Routes = [
     SpringcmImportItemsComponent,
     SpringcmUploadItemsComponent,
     SpringcmUploadFileComponent,
-    ValidatedStringWidgetComponent
+    ValidatedStringWidgetComponent,
+    ExtObjectWidgetComponent
   ],
   entryComponents: [
     SpringcmImportTasksWidgetComponent,
-    ValidatedStringWidgetComponent
+    ValidatedStringWidgetComponent,
+    ExtObjectWidgetComponent
   ],
   imports: [
     BrowserModule,
