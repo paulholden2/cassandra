@@ -22,6 +22,7 @@
     <form>
       <sf-form [schema]="schema" [(model)]="model"></sf-form>
     </form>
+    <div style="padding-top: 40px;"></div>
   </div>
   <div [hidden]="!jsonMode()">
     <div ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" #editor></div>

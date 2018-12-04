@@ -1,0 +1,25 @@
+<div class="widget form-group">
+  <label [attr.for]="id" class="horizontal control-label">
+    <h5>{{ schema.title }}</h5>
+  </label>
+  <div class="divider"></div>
+  <br>
+  <div *ngIf="schema.description" class="formHelp row">
+    <div class="col s12">
+      <h6>{{schema.description}}</h6>
+    </div>
+  </div>
+  <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
+    <blockquote>
+      <sf-form-element [formProperty]="itemProperty"></sf-form-element>
+      <br>
+      <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
+        Remove Item
+      </button>
+    </blockquote>
+  </div>
+  <div style="padding-top: 30px;"></div>
+  <a (click)="addItem()" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-add-button">
+    Add Item
+  </a>
+</div>

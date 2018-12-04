@@ -11,7 +11,49 @@ export class SpringcmImportFileComponent implements AfterViewInit {
 
   importSchema = {
     type: 'object',
+    required: [
+      'tasks'
+    ],
     properties: {
+      logs: {
+        type: 'object',
+        widget: 'ext-object',
+        title: 'CloudWatch Logs',
+        required: [
+          'logGroupName',
+          'logStreamName',
+          'awsAccessKeyId',
+          'awsSecretKey',
+          'awsRegion'
+        ],
+        properties: {
+          logGroupName: {
+            type: 'string',
+            title: 'Log Group Name',
+            widget: 'validated-string'
+          },
+          logStreamName: {
+            type: 'string',
+            title: 'Log Stream Name',
+            widget: 'validated-string'
+          },
+          awsAccessKeyId: {
+            type: 'string',
+            title: 'Access Key ID',
+            widget: 'validated-string'
+          },
+          awsSecretKey: {
+            type: 'string',
+            title: 'Secret Access Key',
+            widget: 'validated-string'
+          },
+          awsRegion: {
+            type: 'string',
+            title: 'AWS Region',
+            widget: 'validated-string'
+          }
+        }
+      },
       tasks: {
         widget: 'springcm-import-tasks',
         title: 'Import Tasks',
@@ -65,15 +107,22 @@ export class SpringcmImportFileComponent implements AfterViewInit {
             paths: {
               type: 'array',
               title: 'Path Configurations',
+              widget: 'itemized-object',
               items: {
                 type: 'object',
+                required: [
+                  'remote',
+                  'local'
+                ],
                 properties: {
                   remote: {
                     type: 'string',
+                    widget: 'validated-string',
                     title: 'Remote directory'
                   },
                   local: {
                     type: 'string',
+                    widget: 'validated-string',
                     title: 'Local directory'
                   }
                 }
