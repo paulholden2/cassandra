@@ -17,40 +17,45 @@ export class SpringcmImportFileComponent implements AfterViewInit {
     properties: {
       logs: {
         type: 'object',
-        widget: 'ext-object',
-        title: 'CloudWatch Logs',
-        required: [
-          'logGroupName',
-          'logStreamName',
-          'awsAccessKeyId',
-          'awsSecretKey',
-          'awsRegion'
-        ],
         properties: {
-          logGroupName: {
-            type: 'string',
-            title: 'Log Group Name',
-            widget: 'validated-string'
-          },
-          logStreamName: {
-            type: 'string',
-            title: 'Log Stream Name',
-            widget: 'validated-string'
-          },
-          awsAccessKeyId: {
-            type: 'string',
-            title: 'Access Key ID',
-            widget: 'validated-string'
-          },
-          awsSecretKey: {
-            type: 'string',
-            title: 'Secret Access Key',
-            widget: 'validated-string'
-          },
-          awsRegion: {
-            type: 'string',
-            title: 'AWS Region',
-            widget: 'validated-string'
+          cloudwatch: {
+            type: 'object',
+            widget: 'ext-object',
+            title: 'CloudWatch Logs',
+            required: [
+              'logGroupName',
+              'logStreamName',
+              'awsAccessKeyId',
+              'awsSecretKey',
+              'awsRegion'
+            ],
+            properties: {
+              logGroupName: {
+                type: 'string',
+                title: 'Log Group Name',
+                widget: 'validated-string'
+              },
+              logStreamName: {
+                type: 'string',
+                title: 'Log Stream Name',
+                widget: 'validated-string'
+              },
+              awsAccessKeyId: {
+                type: 'string',
+                title: 'Access Key ID',
+                widget: 'validated-string'
+              },
+              awsSecretKey: {
+                type: 'string',
+                title: 'Secret Access Key',
+                widget: 'validated-string'
+              },
+              awsRegion: {
+                type: 'string',
+                title: 'AWS Region',
+                widget: 'validated-string'
+              }
+            }
           }
         }
       },
@@ -137,6 +142,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
+    this.jsonEditor.serviceName = 'import-springcm';
     this.jsonEditor.schema = this.importSchema;
   }
 }

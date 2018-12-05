@@ -1,5 +1,14 @@
 <div class="col s12">
-  <app-springcm-file-toolbar></app-springcm-file-toolbar>
+  <form action="#">
+    <div class="file-field input-field">
+      <div [class.disabled]="hasOpenedFile()" (click)="chooseFile()" class="btn waves-effect waves-light">
+        <span>Open file</span>
+      </div>
+      <div class="file-path-wrapper">
+        <input [(ngModel)]="filePath" class="input-field" name="filePath" type="text">
+      </div>
+    </div>
+  </form>
 </div>
 <div class="col s12">
   <form action="#">
