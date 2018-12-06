@@ -14,13 +14,13 @@
   <form action="#">
     <p>
       <label>
-        <input name="editor-view" type="radio" (click)="setEditorMode()" [checked]="editorMode()"/>
+        <input name="editor-view" type="radio" value="editor" (click)="setEditorMode()" [(ngModel)]="mode"/>
         <span>Editor</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="editor-view" type="radio" (click)="setJsonMode()" [checked]="jsonMode()"/>
+        <input name="editor-view" type="radio" value="json" (click)="setJsonMode()" [(ngModel)]="mode"/>
         <span>JSON</span>
       </label>
     </p>

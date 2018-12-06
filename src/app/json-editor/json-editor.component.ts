@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { remote } from 'electron';
 import { readFileSync } from 'fs';
 import { toast } from '@samuelberthe/angular2-materialize';
+import { Validator } from 'jsonschema';
 
 declare var M: any;
 
@@ -104,7 +105,21 @@ export class JsonEditorComponent implements AfterViewInit {
   }
 
   setJsonMode() {
-    this.mode = 'json'
+    var validator = new Validator();
+
+    var res = validator.validate(this.model, this.schema);
+
+    console.log(res);
+
+    if (res.errors.length === 0) {
+      this.mode = 'json'
+    } else {
+      this.mode = 'editor';
+      toast({
+        html: `<p>JSON validation error${res.errors.length > 1 ? 's' : ''}</p>`,
+        classes: 'red accent-2'
+      });
+    }
   }
 
 }
