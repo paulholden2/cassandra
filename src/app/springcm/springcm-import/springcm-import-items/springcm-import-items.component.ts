@@ -28,7 +28,8 @@ export class SpringcmImportItemsComponent implements OnInit {
 
     this.router.navigate([ `/springcm/import/file` ], {
       queryParams: {
-        path: encPath
+        path: encPath,
+        service: 'import-springcm'
       }
     });
   }

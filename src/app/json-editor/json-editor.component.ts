@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { remote } from 'electron';
 import { readFileSync } from 'fs';
 import { toast } from '@samuelberthe/angular2-materialize';
+
+declare var M: any;
 
 @Component({
   selector: 'app-json-editor',
   templateUrl: './json-editor.component.html',
   styleUrls: ['./json-editor.component.css']
 })
-export class JsonEditorComponent implements OnInit {
+export class JsonEditorComponent implements AfterViewInit {
   schema = {
     type: 'object',
     properties: {}
@@ -25,14 +27,20 @@ export class JsonEditorComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params.hasOwnProperty('path')) {
+      if (params.hasOwnProperty('path') && params.hasOwnProperty('service')) {
         this.filePath = decodeURIComponent(params['path']);
-        this.tryLoadJson();
+        this.serviceName = decodeURIComponent(params['service']);
       }
     });
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    // Try loading JSON (if file was passed in via params)
+    // shortly after view is init, so 2 way data binding with
+    // schema form works.
+    setTimeout(() => {
+      this.tryLoadJson();
+    }, 200);
   }
 
   hasOpenedFile() {
@@ -41,6 +49,10 @@ export class JsonEditorComponent implements OnInit {
 
   tryLoadJson() {
     try {
+      if (!this.filePath) {
+        return;
+      }
+
       let fileContent = readFileSync(this.filePath).toString();
       let obj = JSON.parse(fileContent);
       this.model = obj[this.serviceName];

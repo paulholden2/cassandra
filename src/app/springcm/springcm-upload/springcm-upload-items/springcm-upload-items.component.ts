@@ -28,7 +28,8 @@ export class SpringcmUploadItemsComponent implements OnInit {
 
     this.router.navigate([ `/springcm/upload/file` ], {
       queryParams: {
-        path: encPath
+        path: encPath,
+        service: 'upload-springcm'
       }
     });
   }
