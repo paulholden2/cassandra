@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import 'materialize-css';
+import { MaterializeModule } from '@samuelberthe/angular2-materialize';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { SchemaFormModule, WidgetRegistry, DefaultWidgetRegistry } from 'ngx-schema-form';
 import { ExtendedWidgetRegistry } from './extended-widget-registry';
@@ -91,6 +93,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     AceEditorModule,
+    MaterializeModule,
     RouterModule.forRoot(routes),
     SchemaFormModule.forRoot()
   ],

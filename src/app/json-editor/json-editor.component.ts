@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { remote } from 'electron';
 import { readFileSync } from 'fs';
 import { toast } from '@samuelberthe/angular2-materialize';
+import * as $ from 'jquery';
 import { Validator } from 'jsonschema';
 
 declare var M: any;
@@ -59,7 +60,14 @@ export class JsonEditorComponent implements AfterViewInit {
       this.model = obj[this.serviceName];
       console.log(this.model);
       setTimeout(() => {
+        // This updates labels (if the field has a value)
         M.updateTextFields();
+        // Trigger focus & blur so Materialize's validation styling is
+        // applied. Do in reverse so scroll doesn't jump to bottom of
+        // page
+        $($('input').get().reverse()).each(function () {
+          $(this).trigger('focus').trigger('blur');
+        });
       }, 100);
     } catch (e) {
       console.error(e);

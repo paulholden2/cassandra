@@ -27,13 +27,23 @@
   </form>
 </div>
 <div class="col s12">
-  <div [hidden]="!editorMode()">
-    <form>
-      <sf-form [schema]="schema" [(model)]="model"></sf-form>
-    </form>
+  <div class="row">
+    <ul materialize="Tabs" class="tabs">
+      <li class="tab col s3"><a class="active" routerLink="./" fragment="editor">Editor</a></li>
+      <li class="tab col s3"><a routerLink="./" fragment="json">JSON</a></li>
+      <li class="tab col s3"><a routerLink="./" fragment="log">Log</a></li>
+    </ul>
     <div style="padding-top: 40px;"></div>
-  </div>
-  <div [hidden]="!jsonMode()">
-    <div ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" [durationBeforeCallback]="50" #editor></div>
+    <div id="editor" class="col s12">
+      <form>
+        <sf-form [schema]="schema" [(model)]="model"></sf-form>
+      </form>
+      <div style="padding-top: 40px;"></div>
+    </div>
+    <div id="json" class="col s12">
+      <div ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" [durationBeforeCallback]="50" #editor></div>
+    </div>
+    <div id="log" class="col s12">
+    </div>
   </div>
 </div>
