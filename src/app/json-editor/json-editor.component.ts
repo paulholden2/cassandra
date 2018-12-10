@@ -56,11 +56,16 @@ export class JsonEditorComponent implements AfterViewInit {
         return;
       }
 
+      this.errors = [];
+
       let fileContent = readFileSync(this.filePath).toString();
       let obj = JSON.parse(fileContent);
+
       this.model = obj[this.serviceName];
-      console.log(this.model);
+
       setTimeout(() => {
+        this.validateJson();
+
         // This updates labels (if the field has a value)
         M.updateTextFields();
         // Trigger focus & blur so Materialize's validation styling is
@@ -101,22 +106,22 @@ export class JsonEditorComponent implements AfterViewInit {
     return JSON.stringify(this.model, null, ' ');
   }
 
-  onShowJson() {
-    var validator = new Validator();
-
-    var res = validator.validate(this.model, this.schema);
-
-    console.log(res);
+  validateJson() {
+    let validator = new Validator();
+    let res = validator.validate(this.model, this.schema);
 
     if (res.errors.length === 0) {
       this.errors = [];
     } else {
-      this.errors = res.errors;
+      // Only show toast if there are new errors
+      if (this.errors.length === 0) {
+        toast({
+          html: `<p>JSON validation error${res.errors.length > 1 ? 's' : ''}</p>`,
+          classes: 'red accent-2'
+        });
+      }
 
-      toast({
-        html: `<p>JSON validation error${res.errors.length > 1 ? 's' : ''}</p>`,
-        classes: 'red accent-2'
-      });
+      this.errors = res.errors;
     }
   }
 
