@@ -20,6 +20,7 @@ export class JsonEditorComponent implements AfterViewInit {
   };
 
   model = {};
+  errors = [];
   filePath = null;
   hasChanges: Boolean = false;
   // Which service we're modifying config for, e.g. import-springcm
@@ -100,19 +101,7 @@ export class JsonEditorComponent implements AfterViewInit {
     return JSON.stringify(this.model, null, ' ');
   }
 
-  editorMode() {
-    return this.mode === 'editor';
-  }
-
-  jsonMode() {
-    return this.mode === 'json';
-  }
-
-  setEditorMode() {
-    this.mode = 'editor';
-  }
-
-  setJsonMode() {
+  onShowJson() {
     var validator = new Validator();
 
     var res = validator.validate(this.model, this.schema);
@@ -120,9 +109,10 @@ export class JsonEditorComponent implements AfterViewInit {
     console.log(res);
 
     if (res.errors.length === 0) {
-      this.mode = 'json'
+      this.errors = [];
     } else {
-      this.mode = 'editor';
+      this.errors = res.errors;
+
       toast({
         html: `<p>JSON validation error${res.errors.length > 1 ? 's' : ''}</p>`,
         classes: 'red accent-2'

@@ -11,26 +11,10 @@
   </form>
 </div>
 <div class="col s12">
-  <form action="#">
-    <p>
-      <label>
-        <input name="editor-view" type="radio" value="editor" (click)="setEditorMode()" [(ngModel)]="mode"/>
-        <span>Editor</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="editor-view" type="radio" value="json" (click)="setJsonMode()" [(ngModel)]="mode"/>
-        <span>JSON</span>
-      </label>
-    </p>
-  </form>
-</div>
-<div class="col s12">
   <div class="row">
     <ul materialize="Tabs" class="tabs">
       <li class="tab col s3"><a class="active" routerLink="./" fragment="editor">Editor</a></li>
-      <li class="tab col s3"><a routerLink="./" fragment="json">JSON</a></li>
+      <li class="tab col s3"><a (click)="onShowJson()" routerLink="./" fragment="json">JSON</a></li>
       <li class="tab col s3"><a routerLink="./" fragment="log">Log</a></li>
     </ul>
     <div style="padding-top: 40px;"></div>
@@ -41,9 +25,26 @@
       <div style="padding-top: 40px;"></div>
     </div>
     <div id="json" class="col s12">
-      <div ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" [durationBeforeCallback]="50" #editor></div>
+      <div *ngIf="errors.length === 0" ace-editor [text]="formattedModel" mode="json" theme="eclipse" [readOnly]="true" [durationBeforeCallback]="50" #editor></div>
+      <div *ngIf="errors.length !== 0">
+        Please click the "LOG" tab to view JSON validation errors.
+      </div>
     </div>
     <div id="log" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Error</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let error of errors; let i = index" [attr.data-index]="i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ error }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
