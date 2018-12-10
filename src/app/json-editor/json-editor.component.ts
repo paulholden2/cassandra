@@ -109,7 +109,7 @@ export class JsonEditorComponent implements AfterViewInit {
   }
 
   setEditorMode() {
-    this.mode = 'editor'
+    this.mode = 'editor';
   }
 
   setJsonMode() {
