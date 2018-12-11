@@ -45,6 +45,11 @@ export class JsonEditorComponent implements AfterViewInit {
     // schema form works.
     setTimeout(() => {
       this.tryLoadJson();
+      $(document).on('change', 'input', () => {
+        this.validateJson();
+      }).on('click', '.btn', () => {
+        this.validateJson();
+      });
     }, 200);
   }
 
@@ -118,14 +123,6 @@ export class JsonEditorComponent implements AfterViewInit {
     if (res.errors.length === 0) {
       this.errors = [];
     } else {
-      // Only show toast if there are new errors
-      if (this.errors.length === 0) {
-        toast({
-          html: `<p>JSON validation error${res.errors.length > 1 ? 's' : ''}</p>`,
-          classes: 'red accent-2'
-        });
-      }
-
       this.errors = res.errors;
     }
   }
