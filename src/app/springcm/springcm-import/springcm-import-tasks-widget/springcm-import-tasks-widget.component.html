@@ -10,16 +10,11 @@
     </div>
   </div>
   <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
-    <div class="card">
-      <div class="card-content">
-        <sf-form-element [formProperty]="itemProperty"></sf-form-element>
-      </div>
-      <div class="card-action">
-        <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
-          Remove Task
-        </button>
-      </div>
-    </div>
+    <sf-form-element [formProperty]="itemProperty"></sf-form-element>
+    <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
+      Remove Task
+    </button>
+    <div style="margin-bottom: 30px;"></div>
   </div>
   <a (click)="addItem()" class="btn grey-text text-darken-2 green lighten-2 btn-default array-add-button">
     Add Task

@@ -1,11 +1,13 @@
 <fieldset *ngFor="let fieldset of formProperty.schema.fieldsets">
-  <div *ngIf="fieldset.title">
-    <h5 class="header">{{fieldset.title}}</h5>
-    <div class="divider"></div>
-    <div style="padding-top: 5px;"></div>
-  </div>
-  <div *ngIf="fieldset.description">{{fieldset.description}}</div>
-  <div *ngFor="let fieldId of fieldset.fields">
-    <sf-form-element [formProperty]="formProperty.getProperty(fieldId)"></sf-form-element>
-  </div>
+  <ul materialize="Collapsible" class="collapsible" data-collapsible="accordion">
+    <li class="active">
+      <div class="collapsible-header"><h5>{{ fieldset.header || fieldset.title }}</h5></div>
+      <div class="collapsible-body">
+        <div *ngIf="fieldset.description">{{fieldset.description}}</div>
+        <div *ngFor="let fieldId of fieldset.fields">
+          <sf-form-element [formProperty]="formProperty.getProperty(fieldId)"></sf-form-element>
+        </div>
+      </div>
+    </li>
+  </ul>
 </fieldset>
