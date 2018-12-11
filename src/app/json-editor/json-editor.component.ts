@@ -71,8 +71,9 @@ export class JsonEditorComponent implements AfterViewInit {
         // Trigger focus & blur so Materialize's validation styling is
         // applied. Do in reverse so scroll doesn't jump to bottom of
         // page
-        $($('input').get().reverse()).each(function () {
-          $(this).trigger('focus').trigger('blur');
+        $('input').each(function () {
+          $(this).attr('data-length', $(this).val().length);
+          M.validate_field($(this));
         });
       }, 100);
     } catch (e) {

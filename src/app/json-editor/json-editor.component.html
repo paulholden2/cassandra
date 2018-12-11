@@ -1,9 +1,9 @@
 <div class="col s12">
   <form action="#">
     <div class="file-field input-field">
-      <div [class.disabled]="hasOpenedFile()" (click)="chooseFile()" class="btn waves-effect waves-light">
+      <a (click)="chooseFile()" class="btn waves-effect waves-light">
         <span>Open file</span>
-      </div>
+      </a>
       <div class="file-path-wrapper">
         <input [(ngModel)]="filePath" class="input-field" name="filePath" type="text">
       </div>
