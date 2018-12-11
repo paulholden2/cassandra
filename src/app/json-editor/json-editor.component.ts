@@ -14,6 +14,8 @@ declare var M: any;
   styleUrls: ['./json-editor.component.css']
 })
 export class JsonEditorComponent implements AfterViewInit {
+
+  originalSchema = {};
   schema = {
     type: 'object',
     properties: {}
@@ -111,7 +113,7 @@ export class JsonEditorComponent implements AfterViewInit {
 
   validateJson() {
     let validator = new Validator();
-    let res = validator.validate(this.model, this.schema);
+    let res = validator.validate(this.model, this.originalSchema);
 
     if (res.errors.length === 0) {
       this.errors = [];
@@ -126,6 +128,11 @@ export class JsonEditorComponent implements AfterViewInit {
 
       this.errors = res.errors;
     }
+  }
+
+  setSchema(schema) {
+    this.originalSchema = JSON.parse(JSON.stringify(schema));
+    this.schema = JSON.parse(JSON.stringify(schema));
   }
 
 }

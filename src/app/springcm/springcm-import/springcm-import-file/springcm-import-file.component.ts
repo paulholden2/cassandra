@@ -143,6 +143,6 @@ export class SpringcmImportFileComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.jsonEditor.serviceName = 'import-springcm';
-    this.jsonEditor.schema = this.importSchema;
+    this.jsonEditor.setSchema(this.importSchema);
   }
 }
