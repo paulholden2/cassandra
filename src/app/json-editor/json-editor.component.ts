@@ -95,11 +95,13 @@ export class JsonEditorComponent implements AfterViewInit {
       properties: [ 'openFile' ]
     });
 
-    if (files !== null && files.length === 1) {
+    if (files && files.length === 1) {
       this.filePath = files[0];
       this.tryLoadJson();
     } else {
-      // TODO: Error popover
+      toast({
+        html: `<p>Please select a file</p>`
+      });
     }
   }
 
