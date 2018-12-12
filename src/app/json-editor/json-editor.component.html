@@ -20,7 +20,7 @@
     <div style="padding-top: 40px;"></div>
     <div id="editor" class="col s12">
       <form>
-        <sf-form [schema]="schema" (onChange)="model=$event.value"></sf-form>
+        <sf-form [schema]="schema" [(model)]="model"></sf-form>
       </form>
       <div style="padding-top: 40px;"></div>
     </div>
