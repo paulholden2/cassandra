@@ -129,6 +129,38 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                     type: 'string',
                     widget: 'validated-string',
                     title: 'Local directory'
+                  },
+                  wastebin: {
+                    type: 'string',
+                    widget: 'validated-string',
+                    title: 'Wastebin'
+                  },
+                  recurse: {
+                    type: 'boolean',
+                    title: 'Check subdirectories'
+                  },
+                  filter: {
+                    type: 'object',
+                    properties: {
+                      in: {
+                        type: 'array',
+                        widget: 'itemized-object',
+                        title: 'Include',
+                        items: {
+                          type: 'string',
+                          widget: 'validated-string'
+                        }
+                      },
+                      out: {
+                        type: 'array',
+                        widget: 'itemized-object',
+                        title: 'Exclude',
+                        items: {
+                          type: 'string',
+                          widget: 'validated-string'
+                        }
+                      }
+                    }
                   }
                 }
               }

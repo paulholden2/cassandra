@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { remote } from 'electron';
-import { readFileSync } from 'fs';
+import { writeFileSync, readFileSync } from 'fs';
 import { toast } from '@samuelberthe/angular2-materialize';
 import * as $ from 'jquery';
 import { Validator } from 'jsonschema';
@@ -27,6 +27,7 @@ export class JsonEditorComponent implements AfterViewInit {
   hasChanges: Boolean = false;
   // Which service we're modifying config for, e.g. import-springcm
   serviceName = null;
+  fullConfig = {};
 
   mode: String = 'editor';
 
@@ -68,6 +69,7 @@ export class JsonEditorComponent implements AfterViewInit {
       let fileContent = readFileSync(this.filePath).toString();
       let obj = JSON.parse(fileContent);
 
+      this.fullConfig = obj;
       this.model = obj[this.serviceName];
 
       setTimeout(() => {
@@ -130,6 +132,14 @@ export class JsonEditorComponent implements AfterViewInit {
   setSchema(schema) {
     this.originalSchema = JSON.parse(JSON.stringify(schema));
     this.schema = JSON.parse(JSON.stringify(schema));
+  }
+
+  saveAs() {
+    var savePath = remote.dialog.showSaveDialog({});
+
+    this.fullConfig[this.serviceName] = this.model;
+
+    writeFileSync(savePath, JSON.stringify(this.fullConfig, null, '  '));
   }
 
 }
