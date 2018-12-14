@@ -11,7 +11,7 @@
   </div>
   <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
     <sf-form-element [formProperty]="itemProperty"></sf-form-element>
-    <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
+    <button (click)="removeItem(itemProperty)" class="right btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
       Remove Task
     </button>
     <div style="margin-bottom: 30px;"></div>
