@@ -150,7 +150,8 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                         title: 'Include patterns',
                         items: {
                           type: 'string',
-                          widget: 'validated-string'
+                          widget: 'validated-string',
+                          required: true
                         }
                       },
                       out: {
@@ -159,7 +160,8 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                         title: 'Exclude patterns',
                         items: {
                           type: 'string',
-                          widget: 'validated-string'
+                          widget: 'validated-string',
+                          required: true
                         }
                       }
                     }
