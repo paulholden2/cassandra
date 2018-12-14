@@ -37,3 +37,9 @@ img.disabled {
 .row-dense {
   margin-bottom: 0px !important;
 }
+
+/* For string-list-widget. Dense rows */
+.row-dense .input-field {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
