@@ -3,6 +3,7 @@ import { SpringcmImportTasksWidgetComponent } from './springcm/springcm-import/s
 import { ValidatedStringWidgetComponent } from './json-editor/validated-string-widget/validated-string-widget.component';
 import { ExtObjectWidgetComponent } from './json-editor/ext-object-widget/ext-object-widget.component';
 import { ItemizedObjectWidgetComponent } from './json-editor/itemized-object-widget/itemized-object-widget.component';
+import { MaterializeCheckboxWidgetComponent } from './json-editor/materialize-checkbox-widget/materialize-checkbox-widget.component';
 
 export class ExtendedWidgetRegistry extends DefaultWidgetRegistry {
   constructor() {
@@ -12,5 +13,6 @@ export class ExtendedWidgetRegistry extends DefaultWidgetRegistry {
     this.register('springcm-import-tasks', SpringcmImportTasksWidgetComponent);
     this.register('ext-object', ExtObjectWidgetComponent);
     this.register('itemized-object', ItemizedObjectWidgetComponent);
+    this.register('materialize-checkbox', MaterializeCheckboxWidgetComponent)
   }
 }

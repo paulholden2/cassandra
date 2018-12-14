@@ -24,6 +24,7 @@ import { SpringcmUploadFileComponent } from './springcm/springcm-upload/springcm
 import { ValidatedStringWidgetComponent } from './json-editor/validated-string-widget/validated-string-widget.component';
 import { ExtObjectWidgetComponent } from './json-editor/ext-object-widget/ext-object-widget.component';
 import { ItemizedObjectWidgetComponent } from './json-editor/itemized-object-widget/itemized-object-widget.component';
+import { MaterializeCheckboxWidgetComponent } from './json-editor/materialize-checkbox-widget/materialize-checkbox-widget.component';
 
 const routes: Routes = [
   {
@@ -79,13 +80,15 @@ const routes: Routes = [
     SpringcmUploadFileComponent,
     ValidatedStringWidgetComponent,
     ExtObjectWidgetComponent,
-    ItemizedObjectWidgetComponent
+    ItemizedObjectWidgetComponent,
+    MaterializeCheckboxWidgetComponent
   ],
   entryComponents: [
     SpringcmImportTasksWidgetComponent,
     ValidatedStringWidgetComponent,
     ExtObjectWidgetComponent,
-    ItemizedObjectWidgetComponent
+    ItemizedObjectWidgetComponent,
+    MaterializeCheckboxWidgetComponent
   ],
   imports: [
     BrowserModule,

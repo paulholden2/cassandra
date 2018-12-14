@@ -137,7 +137,9 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                   },
                   recurse: {
                     type: 'boolean',
-                    title: 'Check subdirectories'
+                    title: 'Check subdirectories',
+                    widget: 'materialize-checkbox',
+                    default: false
                   },
                   filter: {
                     type: 'object',
