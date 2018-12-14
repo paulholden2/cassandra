@@ -146,7 +146,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                     properties: {
                       in: {
                         type: 'array',
-                        widget: 'itemized-object',
+                        widget: 'string-list',
                         title: 'Include patterns',
                         items: {
                           type: 'string',
@@ -155,7 +155,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                       },
                       out: {
                         type: 'array',
-                        widget: 'itemized-object',
+                        widget: 'string-list',
                         title: 'Exclude patterns',
                         items: {
                           type: 'string',

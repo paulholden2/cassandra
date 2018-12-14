@@ -8,14 +8,16 @@
     </div>
   </div>
   <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
-    <blockquote>
+    <blockquote id="itemizedObjectBlockquote">
       <sf-form-element [formProperty]="itemProperty"></sf-form-element>
-      <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
-        Remove Item
-      </button>
+      <div class="right-align">
+        <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
+          Remove Item
+        </button>
+      </div>
     </blockquote>
+    <div style="padding-top: 30px;"></div>
   </div>
-  <div style="padding-top: 30px;"></div>
   <a (click)="addItem()" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-add-button">
     Add Item
   </a>

@@ -1,0 +1,28 @@
+<div class="widget form-group">
+  <h5 class="header">{{ schema.title }}</h5>
+  <div class="divider"></div>
+  <div *ngIf="schema.description" class="formHelp row">
+    <div class="col s12">
+      <h6>{{ schema.description }}</h6>
+    </div>
+  </div>
+  <blockquote id="stringListBlockquote">
+    <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
+      <div class="row row-dense">
+        <div class="col">
+          <sf-form-element [formProperty]="itemProperty"></sf-form-element>
+        </div>
+        <div class="input-group col" style="margin-top: 8px;">
+          <a (click)="removeItem(itemProperty)" class="btn white-text text-darken-2 indigo lighten-2 btn-default array-remove-button">
+            Remove
+          </a>
+        </div>
+      </div>
+    </div>
+  </blockquote>
+  <div style="padding-top: 15px;"></div>
+  <a (click)="addItem()" class="btn white-text text-darken-2 indigo lighten-2 btn-default array-add-button">
+    Add
+  </a>
+  <div style="padding-top: 15px;"></div>
+</div>

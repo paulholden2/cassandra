@@ -25,6 +25,7 @@ import { ValidatedStringWidgetComponent } from './json-editor/validated-string-w
 import { ExtObjectWidgetComponent } from './json-editor/ext-object-widget/ext-object-widget.component';
 import { ItemizedObjectWidgetComponent } from './json-editor/itemized-object-widget/itemized-object-widget.component';
 import { MaterializeCheckboxWidgetComponent } from './json-editor/materialize-checkbox-widget/materialize-checkbox-widget.component';
+import { StringListWidgetComponent } from './json-editor/string-list-widget/string-list-widget.component';
 
 const routes: Routes = [
   {
@@ -81,14 +82,16 @@ const routes: Routes = [
     ValidatedStringWidgetComponent,
     ExtObjectWidgetComponent,
     ItemizedObjectWidgetComponent,
-    MaterializeCheckboxWidgetComponent
+    MaterializeCheckboxWidgetComponent,
+    StringListWidgetComponent
   ],
   entryComponents: [
     SpringcmImportTasksWidgetComponent,
     ValidatedStringWidgetComponent,
     ExtObjectWidgetComponent,
     ItemizedObjectWidgetComponent,
-    MaterializeCheckboxWidgetComponent
+    MaterializeCheckboxWidgetComponent,
+    StringListWidgetComponent
   ],
   imports: [
     BrowserModule,
