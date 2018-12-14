@@ -133,7 +133,8 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                   wastebin: {
                     type: 'string',
                     widget: 'validated-string',
-                    title: 'Wastebin'
+                    title: 'Wastebin',
+                    description: 'Files are moved here after download'
                   },
                   recurse: {
                     type: 'boolean',
