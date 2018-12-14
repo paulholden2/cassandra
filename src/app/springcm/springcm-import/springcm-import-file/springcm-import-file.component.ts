@@ -147,7 +147,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                       in: {
                         type: 'array',
                         widget: 'itemized-object',
-                        title: 'Include',
+                        title: 'Include patterns',
                         items: {
                           type: 'string',
                           widget: 'validated-string'
@@ -156,7 +156,7 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                       out: {
                         type: 'array',
                         widget: 'itemized-object',
-                        title: 'Exclude',
+                        title: 'Exclude patterns',
                         items: {
                           type: 'string',
                           widget: 'validated-string'
