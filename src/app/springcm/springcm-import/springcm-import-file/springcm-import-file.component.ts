@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { JsonEditorComponent } from '../../../json-editor/json-editor.component';
 
 @Component({
@@ -6,17 +6,21 @@ import { JsonEditorComponent } from '../../../json-editor/json-editor.component'
   templateUrl: './springcm-import-file.component.html',
   styleUrls: ['./springcm-import-file.component.css']
 })
-export class SpringcmImportFileComponent implements AfterViewInit {
+export class SpringcmImportFileComponent implements OnInit {
   @ViewChild(JsonEditorComponent) jsonEditor: JsonEditorComponent;
 
   importSchema = {
     type: 'object',
     required: [
-      'tasks'
+      'tasks',
+      'logs'
     ],
     properties: {
       logs: {
         type: 'object',
+        required: [
+          'cloudwatch'
+        ],
         properties: {
           cloudwatch: {
             type: 'object',
@@ -66,11 +70,11 @@ export class SpringcmImportFileComponent implements AfterViewInit {
         items: {
           type: 'object',
           title: 'Job Information',
-          widget: 'ext-object',
           required: [
             'job',
             'customer'
           ],
+          widget: 'ext-object',
           properties: {
             job: {
               type: 'string',
@@ -85,12 +89,12 @@ export class SpringcmImportFileComponent implements AfterViewInit {
             auth: {
               type: 'object',
               title: 'SpringCM Authentication',
-              widget: 'ext-object',
               required: [
                 'clientId',
                 'clientSecret',
                 'dataCenter'
               ],
+              widget: 'ext-object',
               properties: {
                 clientId: {
                   type: 'string',
@@ -117,7 +121,9 @@ export class SpringcmImportFileComponent implements AfterViewInit {
                 type: 'object',
                 required: [
                   'remote',
-                  'local'
+                  'local',
+                  'recurse',
+                  'filter'
                 ],
                 properties: {
                   remote: {
@@ -178,8 +184,13 @@ export class SpringcmImportFileComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.jsonEditor.serviceName = 'import-springcm';
-    this.jsonEditor.setSchema(this.importSchema);
+    this.jsonEditor.setSchema(this.importSchema, {
+      logs: {
+        cloudwatch: {}
+      },
+      tasks: []
+    });
   }
 }

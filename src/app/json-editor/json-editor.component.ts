@@ -129,9 +129,10 @@ export class JsonEditorComponent implements AfterViewInit {
     }
   }
 
-  setSchema(schema) {
+  setSchema(schema, defaultModel) {
     this.originalSchema = JSON.parse(JSON.stringify(schema));
     this.schema = JSON.parse(JSON.stringify(schema));
+    Object.assign(this.model, defaultModel);
   }
 
   saveAs() {
