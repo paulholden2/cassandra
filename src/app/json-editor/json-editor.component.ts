@@ -40,22 +40,32 @@ export class JsonEditorComponent implements AfterViewInit {
     });
   }
 
+  ngOnInit() {
+    this.validateJson();
+  }
+
   ngAfterViewInit() {
-    // Try loading JSON (if file was passed in via params)
-    // shortly after view is init, so 2 way data binding with
-    // schema form works.
-    setTimeout(() => {
-      this.tryLoadJson();
-      $(document).on('change', 'input', () => {
-        this.validateJson();
-      }).on('click', '.btn', () => {
-        this.validateJson();
-      });
-    }, 200);
+    this.tryLoadJson();
+    this.updateFieldValidation();
+
+    $(document).on('change', 'input', () => {
+      this.validateJson();
+      this.updateFieldValidation();
+    }).on('click', '.btn', () => {
+      this.validateJson();
+      this.updateFieldValidation();
+    });
   }
 
   hasOpenedFile() {
     return this.filePath !== null;
+  }
+
+  updateFieldValidation() {
+    $('input').each(function () {
+      $(this).attr('data-length', $(this).val().length);
+      M.validate_field($(this));
+    });
   }
 
   tryLoadJson() {
@@ -72,19 +82,11 @@ export class JsonEditorComponent implements AfterViewInit {
       this.fullConfig = obj;
       this.model = obj[this.serviceName];
 
-      setTimeout(() => {
-        this.validateJson();
+      this.validateJson();
 
-        // This updates labels (if the field has a value)
-        M.updateTextFields();
-        // Trigger focus & blur so Materialize's validation styling is
-        // applied. Do in reverse so scroll doesn't jump to bottom of
-        // page
-        $('input').each(function () {
-          $(this).attr('data-length', $(this).val().length);
-          M.validate_field($(this));
-        });
-      }, 100);
+      // This updates labels (if the field has a value)
+      M.updateTextFields();
+      this.updateFieldValidation();
     } catch (e) {
       console.error(e);
       this.closeFile();
@@ -129,9 +131,10 @@ export class JsonEditorComponent implements AfterViewInit {
     }
   }
 
-  setSchema(schema) {
+  setSchema(schema, defaultModel) {
     this.originalSchema = JSON.parse(JSON.stringify(schema));
     this.schema = JSON.parse(JSON.stringify(schema));
+    Object.assign(this.model, defaultModel);
   }
 
   saveAs() {

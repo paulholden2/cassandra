@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { JsonEditorComponent } from '../../../json-editor/json-editor.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { JsonEditorComponent } from '../../../json-editor/json-editor.component'
   templateUrl: './springcm-import-file.component.html',
   styleUrls: ['./springcm-import-file.component.css']
 })
-export class SpringcmImportFileComponent implements AfterViewInit {
+export class SpringcmImportFileComponent implements OnInit {
   @ViewChild(JsonEditorComponent) jsonEditor: JsonEditorComponent;
 
   importSchema = {
@@ -178,8 +178,13 @@ export class SpringcmImportFileComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.jsonEditor.serviceName = 'import-springcm';
-    this.jsonEditor.setSchema(this.importSchema);
+    this.jsonEditor.setSchema(this.importSchema, {
+      tasks: [],
+      logs: {
+        cloudwatch: {}
+      }
+    });
   }
 }
