@@ -45,8 +45,10 @@ export class JsonEditorComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.tryLoadJson();
-    this.updateFieldValidation();
+    setTimeout(() => {
+      this.tryLoadJson();
+      this.updateFieldValidation();
+    }, 100);
 
     $(document).on('change', 'input', () => {
       this.validateJson();
@@ -82,11 +84,13 @@ export class JsonEditorComponent implements AfterViewInit {
       this.fullConfig = obj;
       this.model = obj[this.serviceName];
 
-      this.validateJson();
+      setTimeout(() => {
+        this.validateJson();
 
-      // This updates labels (if the field has a value)
-      M.updateTextFields();
-      this.updateFieldValidation();
+        // This updates labels (if the field has a value)
+        M.updateTextFields();
+        this.updateFieldValidation();
+      }, 100);
     } catch (e) {
       console.error(e);
       this.closeFile();
