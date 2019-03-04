@@ -26,7 +26,7 @@ export class SpringcmImportItemsComponent implements OnInit {
 
     var encPath = encodeURIComponent(files[0]);
 
-    this.router.navigate([ `/springcm/import/file` ], {
+    this.router.navigate([ '/platforms/springcm/import/file' ], {
       queryParams: {
         path: encPath,
         service: 'import-springcm'

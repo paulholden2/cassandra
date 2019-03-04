@@ -26,7 +26,7 @@ export class SpringcmUploadItemsComponent implements OnInit {
 
     var encPath = encodeURIComponent(files[0]);
 
-    this.router.navigate([ `/springcm/upload/file` ], {
+    this.router.navigate([ '/platforms/springcm/upload/file' ], {
       queryParams: {
         path: encPath,
         service: 'upload-springcm'

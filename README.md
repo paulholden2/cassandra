@@ -13,8 +13,8 @@ intentions.
    $ node postinstall
    ```
 
-2. For development, run `npm run ng -- serve` in a shell. Run `npm run electron` in a
-   separate shell to launch the window application.
+2. For development, run `npm run ng -- serve` in a shell. In a separate
+   shell, run `npm run electron -- --serve` to launch the application.
 3. To package the Electron app, run `npm run pack`.
 4. If want to build an MSI for installation on Windows, ensure WiX tools are
    installed. Run `npm run msi` to create the MSI.

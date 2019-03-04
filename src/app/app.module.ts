@@ -38,7 +38,7 @@ const routes: Routes = [
     component: PlatformsComponent
   },
   {
-    path: 'springcm',
+    path: 'platforms/springcm',
     component: SpringcmComponent
   },
   {
@@ -46,19 +46,19 @@ const routes: Routes = [
     component: BillingComponent
   },
   {
-    path: 'springcm/import',
+    path: 'platforms/springcm/import',
     component: SpringcmImportComponent
   },
   {
-    path: 'springcm/upload',
+    path: 'platforms/springcm/upload',
     component: SpringcmUploadComponent
   },
   {
-    path: 'springcm/import/file',
+    path: 'platforms/springcm/import/file',
     component: SpringcmImportFileComponent
   },
   {
-    path: 'springcm/upload/file',
+    path: 'platforms/springcm/upload/file',
     component: SpringcmUploadFileComponent
   }
 ];
