@@ -11,6 +11,10 @@
     <blockquote id="itemizedObjectBlockquote">
       <sf-form-element [formProperty]="itemProperty"></sf-form-element>
       <div class="right-align">
+        <button (click)="copyItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
+          Copy Item
+        </button>
+        <span style="padding-left:12px;"></span>
         <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 amber lighten-2 btn-default array-remove-button">
           Remove Item
         </button>

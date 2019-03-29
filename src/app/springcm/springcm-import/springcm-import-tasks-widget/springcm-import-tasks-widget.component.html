@@ -9,9 +9,13 @@
       <h6>{{schema.description}}</h6>
     </div>
   </div>
-  <div class="task-entries" *ngFor="let itemProperty of formProperty.properties">
+  <div class="task-entries" *ngFor="let itemProperty of formProperty.properties;">
     <sf-form-element [formProperty]="itemProperty"></sf-form-element>
     <div class="right-align">
+      <button (click)="copyItem(itemProperty)" class="btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
+        Copy Task
+      </button>
+      <span style="padding-left:12px;"></span>
       <button (click)="removeItem(itemProperty)" class="btn grey-text text-darken-2 green lighten-2 btn-default array-remove-button">
         Remove Task
       </button>
