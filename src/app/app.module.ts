@@ -26,6 +26,7 @@ import { ExtObjectWidgetComponent } from './json-editor/ext-object-widget/ext-ob
 import { ItemizedObjectWidgetComponent } from './json-editor/itemized-object-widget/itemized-object-widget.component';
 import { MaterializeCheckboxWidgetComponent } from './json-editor/materialize-checkbox-widget/materialize-checkbox-widget.component';
 import { StringListWidgetComponent } from './json-editor/string-list-widget/string-list-widget.component';
+import { SalesforceDeliveryComponent } from './salesforce/salesforce-delivery/salesforce-delivery.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'platforms/springcm',
     component: SpringcmComponent
+  },
+  {
+    path: 'platforms/salesforce',
+    component: SalesforceDeliveryComponent
   },
   {
     path: 'billing',
@@ -83,7 +88,8 @@ const routes: Routes = [
     ExtObjectWidgetComponent,
     ItemizedObjectWidgetComponent,
     MaterializeCheckboxWidgetComponent,
-    StringListWidgetComponent
+    StringListWidgetComponent,
+    SalesforceDeliveryComponent
   ],
   entryComponents: [
     SpringcmImportTasksWidgetComponent,
