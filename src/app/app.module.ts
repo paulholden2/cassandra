@@ -28,6 +28,8 @@ import { MaterializeCheckboxWidgetComponent } from './json-editor/materialize-ch
 import { StringListWidgetComponent } from './json-editor/string-list-widget/string-list-widget.component';
 import { SalesforceDeliveryComponent } from './salesforce/salesforce-delivery/salesforce-delivery.component';
 
+import { SalesforceService } from './salesforce.service';
+
 const routes: Routes = [
   {
     path: '',

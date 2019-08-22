@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SalesforceService } from '../../salesforce.service';
 
 @Component({
   selector: 'app-salesforce-delivery',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesforceDeliveryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private salesforceService: SalesforceService) { }
 
   ngOnInit() {
   }
