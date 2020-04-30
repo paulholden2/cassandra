@@ -27,7 +27,7 @@
     "@samuelberthe/angular2-materialize": "^1.0.0-rc.2.1",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jsforce": "^1.9.1",
     "jsonschema": "^1.2.4",
     "materialize-css": "^1.0.0",
